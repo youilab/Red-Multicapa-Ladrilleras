@@ -1,0 +1,60 @@
+body{
+    color: #707070;
+    font-family: 'Roboto', sans-serif;
+}
+.container{
+    margin: 50px;
+}
+.some-page-wrapper {
+    margin: 15px;
+    background-color: red;
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+   
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-basis: 100%;
+    flex: 1;
+    justify-content: center;
+  }
+  .info h3{
+    margin: 20px auto;
+    text-align: center;
+
+  }
+  
+.map{
+  display: flex;
+  margin: 50px auto;
+  flex: 5;
+
+}
+  .map div{
+    margin: 50px auto;
+  }
+
+  .icon {
+    margin: 0 auto;
+    height: fit-content;
+
+  }
+
+.maps-container .icon img {
+    width: 60px;
+}
+
+.maps-container .row:nth-child(3) .icon img,
+.maps-container .row:nth-child(4) .icon img,
+.maps-container .row:nth-child(5) .icon img,
+.maps-container .row:nth-child(6) .icon img,
+.maps-container .row:nth-child(7) .icon img{
+    width: 120px;
+}
