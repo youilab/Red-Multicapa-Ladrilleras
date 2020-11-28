@@ -59,7 +59,7 @@ let dfSinaica = [];
         processRawSinaicaData(csv);
         
         let sensorData = dfSinaica.filter(measure => measure["Sensor"] == "172");
-        console.log(sensorData[0]['PM10'])
+        console.log(sensorData[0]['Timestamp'])
         let chart = d3_timeseries()
             .addSerie(sensorData,{x:'Timestamp',y:'PM10'},{interpolate:'step-before'})
             .addSerie(null,{x:'Timestamp',y:'CO'}, {interpolate:'linear'})
@@ -101,8 +101,8 @@ let dfSinaica = [];
 
         chart = d3_timeseries()
             .addSerie(sensorData,{x:'Timestamp',y:'PM10'},{interpolate:'step-before'})
-            .addSerie(null,{x:'Timestamp',y:'CO'}, {interpolate:'step-before'})
-            .addSerie(null,{x:'Timestamp',y:'O3'}, {interpolate:'step-before'})
+            .addSerie(null,{x:'Timestamp',y:'CO'}, {interpolate:'linear'})
+            .addSerie(null,{x:'Timestamp',y:'O3'}, {interpolate:'linear'})
             .addSerie(null,{x:'Timestamp',y:'SO2'}, {interpolate:'linear'})
             .addSerie(null,{x:'Timestamp',y:'NO2'}, {interpolate:'linear'})
             .addSerie(null,{x:'Timestamp',y:'PM2.5'}, {interpolate:'linear'})
@@ -200,12 +200,7 @@ let dfSinaica = [];
             }
             dfSinaica.push(tmpRow);
         }
-        dfSinaica.sort(function(a,b){
-            // Turn your strings into dates, and then subtract them
-            // to get a value that is either negative, positive, or zero.
-            return new Date(b.Timestamp) - new Date(a.Timestamp);
-          });
-        console.log(dfSinaica);
+        dfSinaica.sort(function(a,b){return a.Timestamp - b.Timestamp});
         for (let i = 0 ; i < dfSinaica.length ; i++)
             if (dfSinaica[i]["Sensor"] == 0) {
                 dfSinaica.splice(i, 1); 
